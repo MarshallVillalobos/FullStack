@@ -43,4 +43,4 @@ CREATE TABLE detalles_pedidos (
 
     CONSTRAINT fk_detalle_pedido FOREIGN KEY (pedido_id) REFERENCES pedidos(id) ON DELETE CASCADE,
     CONSTRAINT fk_detalle_perfume FOREIGN KEY (perfume_id) REFERENCES perfumes(id)
-)
+);
