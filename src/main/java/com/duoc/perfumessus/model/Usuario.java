@@ -39,8 +39,8 @@ public class Usuario {
 
     private String rol;
 
-    //@OneToMany(mappedBy = "usuario")
-    //private List<Pedido> pedidos;
+    @OneToMany(mappedBy = "usuario")
+    private List<Pedido> pedidos;
 
 
 
