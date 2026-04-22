@@ -35,7 +35,7 @@ public class Usuario {
     private String email;
 
     @NotBlank(message = "La clave es obligatoria")
-    private String password;
+    private String clave;
 
     private String rol;
 
