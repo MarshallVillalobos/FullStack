@@ -8,6 +8,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
+/**
+ * Objeto de Transferencia de Datos (DTO) para la entidad.
+ * Este objeto se utiliza para encapsular y transportar los datos desde la 
+ * capa de servicio hacia la capa de presentación. 
+ * Actúa como una barrera de seguridad y diseño,
+ * permitiendo exponer estrictamente la información necesaria para el cliente.
+ */
+
 public class PerfumeDTO {
 
     private Long id;
