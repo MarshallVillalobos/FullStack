@@ -1,0 +1,656 @@
+{
+  "info": {
+    "_postman_id": "f038e013-e574-47a9-971a-26f9e834067d",
+    "name": "Testing de Endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53316714",
+    "_collection_link": "https://go.postman.co/collection/53316714-f038e013-e574-47a9-971a-26f9e834067d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Perfumes",
+      "item": [
+        {
+          "name": "Funcionales",
+          "item": [
+            {
+              "name": "Crear Perfume",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"Sauvage\",\r\n    \"marca\": \"Dior\",\r\n    \"tipo\": \"Eau de Parfum\",\r\n    \"ml\": 60,\r\n    \"precio\": 115990.0,\r\n    \"stock\": 25\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Obtener Todos los Perfumes",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Obtener Perfume por ID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Actualizar Perfume",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"Sauvage Elixir\",\r\n    \"marca\": \"Dior\",\r\n    \"tipo\": \"Extrait de Parfum\",\r\n    \"ml\": 60,\r\n    \"precio\": 155000.0,\r\n    \"stock\": 10\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Consultar API Fragella",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes/externo?nombre=Sauvage",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes",
+                    "externo"
+                  ],
+                  "query": [
+                    {
+                      "key": "nombre",
+                      "value": "Sauvage"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Eliminar Perfume",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Validación de errores",
+          "item": [
+            {
+              "name": "Error al Crear JSON",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"\",\r\n    \"marca\": \"\",\r\n    \"tipo\": \"Prueba\",\r\n    \"ml\": -5,\r\n    \"precio\": -100.0,\r\n    \"stock\": -1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Error ID Fantasma",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes/9999",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes",
+                    "9999"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Inyección Incorrecta",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes/abc",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes",
+                    "abc"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Actualizar Nada",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"Sauvage Elixir\",\r\n    \"marca\": \"Dior\",\r\n    \"tipo\": \"Extrait de Parfum\",\r\n    \"ml\": 60,\r\n    \"precio\": 155000.0,\r\n    \"stock\": 10\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes/9999",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes",
+                    "9999"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Validación Actualización",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"\",\r\n    \"marca\": \"\",\r\n    \"tipo\": \"Prueba\",\r\n    \"ml\": -5,\r\n    \"precio\": -100.0,\r\n    \"stock\": -1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Eliminar Nada",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/perfumes/9999",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "perfumes",
+                    "9999"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Usuario",
+      "item": [
+        {
+          "name": "Funcionales",
+          "item": [
+            {
+              "name": "Crear Usuario",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"Marshall Villalobos\",\r\n    \"email\": \"marshall.v@example.com\",\r\n    \"clave\": \"admin1234\",\r\n    \"rol\": \"ADMIN\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/usuarios",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Listar Todos los Usuarios",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/usuarios",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Obtener Usuario por ID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/usuarios/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Actualizar Usuario",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"Marshall Villalobos (Actualizado)\",\r\n    \"email\": \"marshall.v@example.com\",\r\n    \"rol\": \"SUPER_USER\",\r\n    \"clave\": \"nuevaClave99\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/usuarios/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Eliminar Usuario",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/usuarios/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Validación de errores",
+          "item": [
+            {
+              "name": "Crear Usuario - Campos Vacíos",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"\",\r\n    \"email\": \"\",\r\n    \"clave\": \"   \",\r\n    \"rol\": \"USER\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/usuarios",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Crear Usuario - Email Inválido",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"Vicente Arellano\",\r\n    \"email\": \"vicente.arellano.sin.arroba.com\",\r\n    \"clave\": \"secreta123\",\r\n    \"rol\": \"USER\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/usuarios",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Crear Usuario - Email Duplicado",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"Hacker Malicioso\",\r\n    \"email\": \"marshall.v@example.com\", \r\n    \"clave\": \"hack123\",\r\n    \"rol\": \"USER\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/usuarios",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Obtener Usuario - ID Fantasma",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/usuarios/99999",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "99999"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Actualizar Usuario - Datos Inválidos",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"\",\r\n    \"email\": \"correo-roto\",\r\n    \"clave\": \"\",\r\n    \"rol\": \"ADMIN\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/usuarios/3",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "3"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Inyección Incorrecta (Letras en ID)",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/v1/usuarios/hacker",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v1",
+                    "usuarios",
+                    "hacker"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
