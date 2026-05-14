@@ -1,7 +1,9 @@
 package com.duoc.perfumessus.controller;
 
+import com.duoc.perfumessus.dto.FragellaDTO;
 import com.duoc.perfumessus.dto.PerfumeDTO;
 import com.duoc.perfumessus.model.Perfume;
+import com.duoc.perfumessus.service.FragellaService;
 import com.duoc.perfumessus.service.PerfumeService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +19,9 @@ import java.util.List;
 @RequestMapping("/api/v1/perfumes")
 @Slf4j
 public class PerfumeController {
+
+    @Autowired
+    private FragellaService fragellaService;
 
     @Autowired
     private PerfumeService perfumeService;
@@ -83,5 +88,18 @@ public class PerfumeController {
         
         log.warn("[PerfumeController] -> No se pudo eliminar: ID {} no encontrado.", id);
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/externo")
+    public ResponseEntity<List<FragellaDTO>> buscarEnApiExterna(@RequestParam String nombre) {
+        log.info("[PerfumeController] -> Solicitud GET: Buscar en Fragella: {}", nombre);
+        
+        List<FragellaDTO> resultados = fragellaService.buscarPerfumeExterno(nombre);
+        
+        if (resultados != null && !resultados.isEmpty()) {
+            return ResponseEntity.ok(resultados);
+        }
+        
+        return ResponseEntity.noContent().build();
     }
 }
