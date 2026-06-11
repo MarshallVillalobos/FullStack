@@ -40,7 +40,7 @@ public class UsuarioService {
         
         //Si no especifican rol, le damos el rol de usuario estándar
         if (usuario.getRol() == null || usuario.getRol().isBlank()) {
-            usuario.setRol("USER");
+            usuario.setRol("ROLE_USER");
         }
         
         Usuario guardado = usuarioRepository.save(usuario);
