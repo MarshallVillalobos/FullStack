@@ -30,6 +30,12 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 // Endpoints públicos (login y registro)
                 .requestMatchers("/api/v1/auth/**").permitAll()
+                    // ← AGREGAR ESTO:
+                .requestMatchers(
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/v3/api-docs/**"
+                ).permitAll()
                 // GET permitido a USER y ADMIN
                 .requestMatchers(HttpMethod.GET, "/api/v1/**").hasAnyRole("USER", "ADMIN")
                 // POST, PUT, DELETE solo para ADMIN
