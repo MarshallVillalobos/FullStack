@@ -13,16 +13,10 @@ class JwtUtilTest {
     private static final String SECRET = "perfumessus-clave-secreta-jwt-2026-cambiar-en-produccion";
 
     @BeforeEach
-    void setUp() throws Exception {
-        jwtUtil = new JwtUtil();
-
-        // Inyectamos el secret manualmente vía reflection (porque @Value no aplica fuera de Spring)
-        var field = JwtUtil.class.getDeclaredField("secret");
-        field.setAccessible(true);
-        field.set(jwtUtil, SECRET);
-
-        // Llamamos a init() para construir la clave
-        jwtUtil.init();
+    void setUp() {
+        // ¡Mira qué fácil es ahora gracias al cambio del profe!
+        // Solo instanciamos la clase pasándole el texto secreto, sin Reflection ni init()
+        jwtUtil = new JwtUtil(SECRET);
     }
 
     // ─────────────────────────────────────────────

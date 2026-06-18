@@ -3,14 +3,14 @@ services:
     image: mysql:8.4
     container_name: perfumessus-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: perfumessus_db
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
-      - "3307:3306"
+      - "${MYSQL_HOST_PORT}:${MYSQL_CONTAINER_PORT}"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${MYSQL_ROOT_PASSWORD}"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -23,15 +23,16 @@ services:
       mysql:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/perfumessus_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
+      DB_URL: ${DB_URL_DOCKER}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
       SPRING_JPA_HIBERNATE_DDL_AUTO: none
       SPRING_JPA_SHOW_SQL: "true"
-      JWT_SECRET: perfumessus-clave-secreta-jwt-2026-cambiar-en-produccion
-      FRAGELLA_API_KEY: cffd3d8a44c858eeb5315b01bcacf0e160fa78f9b3792bcdc9b49f8659e9cca5
+      JWT_SECRET: ${JWT_SECRET}
+      FRAGELLA_BASE_URL: ${FRAGELLA_BASE_URL}
+      FRAGELLA_API_KEY: ${FRAGELLA_API_KEY}
     ports:
-      - "8080:8080"
+      - "${APP_HOST_PORT}:8080"
     restart: unless-stopped
 volumes:
   mysql_data:
